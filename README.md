@@ -1,3 +1,45 @@
+# Exploring Pluvial Flood Susceptibility Data (Python)
+
+Before you can map risk, you have to trust the numbers. In this notebook I worked through 144,401 pluvial flood susceptibility points with GeoPandas, cleaned the data, tested how the parameters relate to each other, and **mapped where susceptibility is highest**.
+
+Task 4 of the WebGIS Developer bootcamp (Python Basic).
+
+![Correlation heatmap](docs/korelasi.jpg)
+
+*Correlation heatmap from the output before NoData cleaning; it will be updated once the notebook is rerun.*
+
+## Steps
+
+1. Load the point GeoJSON with GeoPandas.
+2. Clean the raster NoData values (`-3.4e38`) into `NaN`.
+3. Descriptive statistics and histograms for Slope, Rainfall and TWI.
+4. Distribution of the susceptibility classes (`SUSCEP`).
+5. Scatter plots of the relationships between Slope, Rainfall, TWI, Flow Accumulation and Drainage.
+6. Correlation heatmap across the parameters.
+7. Interactive Folium map for points of class `HIGH` and `VERY_HIGH`.
+
+## Running
+
+```bash
+pip install geopandas folium matplotlib seaborn
+```
+
+Place `data_point_pluvial_flood_dataset.geojson` (bootcamp data, not included because of its size) in the `data/` folder, then run `Task Day 4.ipynb`.
+
+## Notes on fixes
+
+The notebook now includes a NoData cleaning step (section 3.1). Previously the `-3.4e38` values were counted, so the means and the TWI and Slope histograms were meaningless. **The saved outputs are still from the old version.** Rerun the notebook with the data to refresh the charts.
+
+## Tools
+
+Python · GeoPandas · pandas · Matplotlib · Seaborn · Folium
+
+## Author
+
+**Arsya Dika** · [GitHub](https://github.com/ArsyaDika)
+
+------------------
+
 # Eksplorasi Data Kerentanan Banjir Pluvial (Python)
 
 Eksplorasi 144.401 titik data kerentanan banjir pluvial dengan GeoPandas: statistik deskriptif, distribusi parameter, korelasi antar parameter, dan peta interaktif titik berkerentanan tinggi.
